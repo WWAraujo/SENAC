@@ -1,0 +1,26 @@
+drop database if exists zemudanca;
+
+create database zemudanca;
+
+Use zemudanca;
+
+create table motorista (
+		cod_motorista int primary key auto_increment,
+        cpf_motorista varchar (14) not null unique,
+		nome_motorista varchar (40) not null,
+        modelo_veiculo varchar (30) not null,
+        placa_do_veiculo varchar (7) not null,
+		celular_motorista varchar (15) not null,
+		endereco_motorista varchar (50) not null,
+		email_motorista varchar (50),
+		data_nascimento_motorista date);
+
+create table cliente (
+		cod_cli int primary key auto_increment,
+		nome_cli varchar (40) not null,
+		celular_cli varchar (15) not null,
+		endereco_origem_cli varchar (50) not null,
+        endereco_destino_cli varchar (50) not null,
+		email_cli varchar (50),
+        cod_motorista int );
+        

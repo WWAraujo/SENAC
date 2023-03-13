@@ -1,0 +1,8 @@
+Classes são compostas por metodos e atributos
+
+A combinação de atributos e serviços são Abstração 
+
+a) Produto 
+b) nome, preço, quantidade, desconto, valor a pagar
+c) metodo para comparar a quantidade de produtos para passar o desconto, e outro para fazer o valor a ser pago com a a quantidade * valor - desconto se aplicado
+d) ... 
