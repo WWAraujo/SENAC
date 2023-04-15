@@ -4,23 +4,21 @@ import java.math.BigDecimal;
 
 public class ItemPedido {
 
-    private int qtd;
+    private Double total;
 
-    private BigDecimal valorUnitatio;
+    private Produto produto;
+    public ItemPedido(Produto produto) {
 
-    public int getQtd() {
-        return qtd;
+
+        this.total = produto.getPreco() * produto.getCodigo();
+        this.produto = produto;
     }
 
-    public void setQtd(int qtd) {
-        this.qtd = qtd;
+    public Double getTotal() {
+        return total;
     }
 
-    public BigDecimal getValorUnitatio() {
-        return valorUnitatio;
-    }
-
-    public void setValorUnitatio(BigDecimal valorUnitatio) {
-        this.valorUnitatio = valorUnitatio;
+    public void setTotal(Double total) {
+        this.total = total;
     }
 }
