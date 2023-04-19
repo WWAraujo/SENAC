@@ -20,6 +20,10 @@ public class Lista {
         }
     }
 
+    public void inserirNoMeio(int id){
+    }
+
+
     public void exibir(){
         Elemento e = inicio;
         while (e!=null){
@@ -78,4 +82,16 @@ public class Lista {
             System.out.println("Nao encontrado");
         }
     }
+
+    public int contador(){
+        int contador = 0;
+        Elemento e = inicio;
+        while (e!=null){
+            contador++;
+            e = e.getProx();
+        }
+        return contador;
+    }
+
+
 }

@@ -7,7 +7,7 @@ public class Elemento {
     public Elemento(Object objeto, Elemento prox, Elemento ant) {
         this.objeto = objeto;
         this.prox = prox;
-        this.prox = ant;
+        this.ant = ant;
     }
 
     public Object getObjeto() {
