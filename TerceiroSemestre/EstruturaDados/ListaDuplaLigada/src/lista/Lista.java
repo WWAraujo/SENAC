@@ -35,6 +35,7 @@ public class Lista {
     public void encontrarMostrar(int id){
         Elemento e = inicio;
         Contato c;
+
         while (e!=null){
             c=(Contato)e.getObjeto();
             if (id== c.getId()){
