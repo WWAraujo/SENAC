@@ -23,6 +23,8 @@ public class UsarLista {
         pilha.exibir();
         pilha.size();
 
+        System.out.println("=====================================");
+
         Fila fila = new Fila();
         fila.enqueue(new Contato("Wallace","1234-5678"));
         fila.enqueue(new Contato("Wagner ","1234-5678"));
