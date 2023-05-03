@@ -13,12 +13,12 @@ public class UsarLista {
 
         pilha.exibir();
         pilha.size();
-        System.out.println("ultimo");
+        System.out.println("Mostrar o ultimo");
         pilha.top();
-        System.out.println("remover ultimo");
+        System.out.println("Remover ultimo");
         pilha.pop();
         pilha.size();
-        System.out.println("inserir novo");
+        System.out.println("Inserir novo");
         pilha.push(new Contato("Araujo ","1234-5678"));
         pilha.exibir();
         pilha.size();
@@ -33,13 +33,13 @@ public class UsarLista {
 
         fila.exibir();
         fila.size();
-        System.out.println("mostrar o primeiro");
+        System.out.println("Mostrar o primeiro");
         fila.front();
         fila.size();
-        System.out.println("remover primeiro");
+        System.out.println("Remover primeiro");
         fila.dequeue();
         fila.size();
-        System.out.println("inserir novo");
+        System.out.println("Inserir novo");
         fila.enqueue(new Contato("Araujo ","1234-5678"));
         fila.exibir();
         fila.size();
