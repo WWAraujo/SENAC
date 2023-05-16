@@ -51,6 +51,4 @@ public class Pilha {
             e = e.getProx();
         }
     }
-
-
 }
