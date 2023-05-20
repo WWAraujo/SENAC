@@ -1,15 +1,16 @@
-package lista;
+package controller;
 
-public class Pilha {
+import lista.Elemento;
+
+public class Fila {
 
     private Elemento inicio, atual, aux;
 
     private int v = 1;
 
-
     public boolean empty () {return  inicio == null;}
 
-    public void size() {
+    public void size () { //tamanho
         Elemento e = inicio;
         int cont = 0;
         while (e!=null){
@@ -19,7 +20,7 @@ public class Pilha {
         System.out.println("tamanho: "+cont);
     }
 
-    public void push (Object objeto) {
+    public void enqueue (Object objeto) { //inserir
         if (empty()){
             inicio = new Elemento(objeto,null,null);
             aux=inicio;
@@ -30,18 +31,16 @@ public class Pilha {
         }
     }
 
-    public void top () {
-        Elemento e = atual;
+    public void front () { //primeiro
+        Elemento e = inicio;
         System.out.println(e.getObjeto());
     }
 
-    public void pop () {
-        Elemento e = atual;
-        aux = e.getAnt();
-        atual = aux;
-        e.setAnt(null);
-        atual.setProx(null);
-
+    public void dequeue () { // remover
+        Elemento e = inicio;
+        inicio = e.getProx();
+        e.setProx(null);
+        inicio.setAnt(null);
     }
 
     public void exibir(){
@@ -51,6 +50,4 @@ public class Pilha {
             e = e.getProx();
         }
     }
-
-
 }
