@@ -1,14 +1,17 @@
-package lista;
+package controller;
 
-public class Fila {
+import lista.Elemento;
+
+public class Pilha {
 
     private Elemento inicio, atual, aux;
 
     private int v = 1;
 
+
     public boolean empty () {return  inicio == null;}
 
-    public void size () { //tamanho
+    public void size() {
         Elemento e = inicio;
         int cont = 0;
         while (e!=null){
@@ -18,7 +21,7 @@ public class Fila {
         System.out.println("tamanho: "+cont);
     }
 
-    public void enqueue (Object objeto) { //inserir
+    public void push (Object objeto) {
         if (empty()){
             inicio = new Elemento(objeto,null,null);
             aux=inicio;
@@ -29,16 +32,18 @@ public class Fila {
         }
     }
 
-    public void front () { //primeiro
-        Elemento e = inicio;
+    public void top () {
+        Elemento e = atual;
         System.out.println(e.getObjeto());
     }
 
-    public void dequeue () { // remover
-        Elemento e = inicio;
-        inicio = e.getProx();
-        e.setProx(null);
-        inicio.setAnt(null);
+    public void pop () {
+        Elemento e = atual;
+        aux = e.getAnt();
+        atual = aux;
+        e.setAnt(null);
+        atual.setProx(null);
+
     }
 
     public void exibir(){
