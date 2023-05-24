@@ -1,6 +1,7 @@
 package org.example.cliente;
 
 import org.example.arvore.Arvore;
+import org.example.arvore.Elemento;
 
 public class UsaArvore {
 
@@ -16,8 +17,17 @@ public class UsaArvore {
         arvore.inserir(90);
         arvore.inserir(89);
 
+        System.out.println("Maior ==========");
+        Elemento elemento = arvore.getMaior(arvore.getRaiz());
+        System.out.println(elemento.getN());
+
+
         //arvore.preOrdem(arvore.getRaiz());
-        arvore.posOrdem(arvore.getRaiz());
-        //arvore.ordem(arvore.getRaiz());
+        //arvore.posOrdem(arvore.getRaiz());
+
+
+        arvore.remover(elemento, 90);
+
+        arvore.ordem(arvore.getRaiz());
     }
 }

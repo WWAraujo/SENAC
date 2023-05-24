@@ -58,4 +58,64 @@ public class Arvore {
             System.out.println(e.getN());// Visitar nó raiz
         }
     }
+
+    public Elemento pesquisar(Elemento e, int n){
+        if (e != null) {
+            if (n == e.getN()) {
+                return  e;
+            } else if (n > e.getN()) {
+                return pesquisar(e.getDir(),n);
+            } else {
+                return pesquisar(e.getEsq(), n);
+            }
+        }
+        return null;
+    }
+
+    public Elemento getMaior(Elemento e) {
+        if (e.getDir() != null) {
+            return getMaior(e.getDir());
+        }
+        return e;
+    }
+
+    public int grau(Elemento e, int n) {
+        Elemento pesq = pesquisar(e, n);
+        if (pesq != null) {
+            if (pesq.getDir() == null && pesq.getEsq() ==  null) {
+                return 0;
+            }
+            if (pesq.getDir() != null && pesq.getEsq() != null) {
+                return 2;
+            } else {
+                return 1;
+            }
+        }
+        return -1;
+    }
+
+    public void  remover(Elemento e, int n) {
+        Elemento pesq = pesquisar(e, n);
+        if (pesq != null) {
+            if (grau(e, n) == 0) {
+                if (pesq.getR().getDir() == pesq) {
+                    pesq.getR().setDir(null);
+                    pesq.setR(null);
+                } else {
+                    pesq.getR().setEsq(null);
+                    pesq.setR(null);
+                }
+            }
+        } else if (grau(e, n) == 1) {
+            if (pesq.getDir() != null) {
+                pesq.setN(pesq.getDir().getN());
+                remover(pesq.getDir(), pesq.getDir().getN());
+            } else {
+                pesq.setN(pesq.getEsq().getN());
+                remover(pesq.getEsq(), pesq.getEsq().getN());
+            }
+        }
+    }
+
+
 }
