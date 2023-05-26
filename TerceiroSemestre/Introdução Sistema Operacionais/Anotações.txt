@@ -1,0 +1,81 @@
+Criar uma maquina virtual no portal.azure.com utilizando os creditos fornecidos por ser aluno Senac
+
+Abrir o CMD e entrar na máquina digitar: ssh nomeDaMaquina@ipGlobalGeradoNoAzure
+Depois colocar a senha. U)hQ.c#H~8M,a4u
+ssh wallace@EndereçoIPPúblico
+
+Comando: ls; lista o diretorio 
+ls -l /ect mostra uma lista com varias informações. 
+começando com d é diretorio 
+começando com - é arquivo
+começando com l é link
+
+
+comando: 
+ls -lha 		(Mostra os arquivos ocultos)
+cd.			(Marca um diretorio como ponto de referencia de busca ex ./proximopasta/outroDiretorio) 
+ls -lahS /ect		(Mostrar o diretorio por ordem de tamanho)
+ls -- help		(Mostra todos os comandos)	 
+man 			(Mostra o manual do iunix)
+man + (comando) 	(mostra o manual do comendo)
+man -k (copy)		(pesquisa tudo sobre copy ou qualquer ourta coisa que digitar)
+(comando) --help	(pesquisar ajuda do comando)
+man (comando)		(pesquisar ajuda do comando)
+
+Completa caminho um tab, dois tab ele lista todos os auto completi possiveis 
+Ctrl + L ele limpa a tela 
+Clear você limpa toda a tela 
+Ctrl + U recortar 
+Ctrl + Y Colar o que recortou
+Shift + pagUp rola a pagina para cima
+Shift + pgDn rola a para para baixo
+
+uname -a 
+cat /etc/*release
+cat /proc/cpuinfo
+lscpu
+lshw
+sudo + comando (é para executar como super ususario)
+lsusb
+lspci
+lslogins
+lslogins -u
+last 
+last -x
+uptime
+upower -d (no windos powercfg)
+free
+free -ht
+man units
+df -h
+lsblk
+df -h
+fdisk 
+sudo fdisk -l 
+
+vmstat
+vmstat -s
+vmstat -s | grep nte
+watch 'vmstat -s | grep nte'
+cat /proc/interrupts
+watch 'cat /proc/interrupts'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
