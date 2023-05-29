@@ -33,7 +33,7 @@ public class Arvore {
         return noh;
     }
 
-    public int pegarQuantidade() {
+    public int pegarQuantidadeAluno() {
         return contar;
     }
 
@@ -64,24 +64,28 @@ public class Arvore {
     }
 
     public String verificarFalta(int id) {
+
         Aluno aluno = pesquisarAluno(id);
+
         if (aluno == null) {
             return "Aluno não encontrado";
         }
 
         double faltaAluno = 0;
+
         if(aluno.getFaltas() > 0){
-            //Considerando 16 aulas cada aula 4,5 horas
+            //Considerando 18 aulas, cada aula 4 horas
             for(int i = 1; i <= aluno.getFaltas(); i++ ){
-                faltaAluno += 4.5;
+                faltaAluno += 4;
             }
         }
 
         double cargaHoraria = 72;
         double limiteFaltas = cargaHoraria * 0.25;
 
-        if(faltaAluno >= limiteFaltas)
+        if(faltaAluno >= limiteFaltas) {
             return "O Aluno foi reprovado, quantidade de horas faltantes: " + faltaAluno;
+        }
 
         return "O aluno não excedeu o percentual de faltas";
     }
@@ -106,14 +110,13 @@ public class Arvore {
         return pegarMaiorMediaAluno(raiz);
     }
 
-    private double pegarMaiorMediaAluno(Noh no) {
-        if (no == null) {
+    private double pegarMaiorMediaAluno(Noh noh) {
+        if (noh == null) {
             return Double.MIN_VALUE;
         }
-
-        double maiorMedia = no.aluno.media;
-        double mediaEsquerda = pegarMaiorMediaAluno(no.left);
-        double mediaDireita = pegarMaiorMediaAluno(no.right);
+        double maiorMedia = noh.aluno.media;
+        double mediaEsquerda = pegarMaiorMediaAluno(noh.left);
+        double mediaDireita = pegarMaiorMediaAluno(noh.right);
 
         if (mediaEsquerda > maiorMedia) {
             maiorMedia = mediaEsquerda;
@@ -121,7 +124,6 @@ public class Arvore {
         if (mediaDireita > maiorMedia) {
             maiorMedia = mediaDireita;
         }
-
         return maiorMedia;
     }
 
