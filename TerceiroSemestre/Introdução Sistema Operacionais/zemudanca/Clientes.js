@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, TextInput, SafeAreaView, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, TextInput, SafeAreaView, ScrollView, Modal } from 'react-native';
 import logo from './assets/caminhao.png';
 import CustomButton from './components/CustomButton';
 
-let array = [];
-
 export default function App() {
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
 
@@ -17,48 +26,64 @@ export default function App() {
       </View>
 
       <ScrollView>
+
         <Text style={styles.titulo}>CLIENTES</Text>
         <Text>Nome:</Text>
         <TextInput
           style={styles.input}
-          placeholder='Digite seu nome'
+          placeholder='Digite o nome'
           placeholderTextColor="grey"
         />
+
         <Text style={styles.txt}>CPF:</Text>
         <TextInput
           style={styles.input}
-          placeholder='Digite seu CPF'
+          placeholder='Digite o CPF'
           placeholderTextColor="grey"
         />
+
         <Text style={styles.txt}>Data de Nascimento:</Text>
         <TextInput
           style={styles.input}
           placeholder='dd/MM/YYYY'
           placeholderTextColor="grey"
         />
+
         <Text style={styles.txt}>Telefone:</Text>
         <TextInput
           style={styles.input}
-          placeholder='Digite seu telefone'
+          placeholder='Digite o telefone'
           placeholderTextColor="grey"
         />
+
         <Text style={styles.txt}>E-mail:</Text>
         <TextInput
           style={styles.input}
-          placeholder='Digite seu e-mail'
+          placeholder='Digite o e-mail'
           placeholderTextColor="grey"
         />
+
         <Text style={styles.txt}>Endereço:</Text>
         <TextInput
           style={styles.input}
-          placeholder='Digite seu endereço'
+          placeholder='Digite o endereço'
           placeholderTextColor="grey"
         />
+
       </ScrollView>
-    
+
       <View>
-        <CustomButton  title="Salvar" onPress={() => SiteAccess(navigation)} />
+        <CustomButton  title="Salvar" onPress={handleButtonClick} />
       </View>
+
+      <Modal visible={showModal} animationType="slide" onRequestClose={handleCloseModal}>
+        <View style={styles.modalContainer}>
+        
+          <Text style={styles.modalText}>Cliente salvo com sucesso!</Text>
+          
+          <CustomButton title="Fechar" onPress={handleCloseModal} />
+        </View>
+      </Modal>
 
     </SafeAreaView>
     );
@@ -106,5 +131,20 @@ const styles = StyleSheet.create({
 
   txt: {
     marginTop: 10,
+  },
+
+  modalContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+    margin: 20,
+    borderRadius: 8,
+    padding: 20,
+  },
+  modalText: {
+    fontSize: 18,
+    marginBottom: 20,
+    textAlign: 'center',
   },
 });

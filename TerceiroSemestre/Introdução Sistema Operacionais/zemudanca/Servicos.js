@@ -1,10 +1,22 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image, TextInput,SafeAreaView, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Image, TextInput, SafeAreaView, ScrollView, Modal } from 'react-native';
 import logo from './assets/caminhao.png';
 import CustomButton from './components/CustomButton';
 
 
 export default function App() {
+
+   const [showModal, setShowModal] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  
   return (
     <SafeAreaView style={styles.container}>
 
@@ -40,8 +52,17 @@ export default function App() {
     </ScrollView>
 
       <View>
-        <CustomButton  title="Salvar" onPress={() => SiteAccess(navigation)} />
+        <CustomButton  title="Salvar" onPress={handleButtonClick} />
       </View>
+
+      <Modal visible={showModal} animationType="slide" onRequestClose={handleCloseModal}>
+        <View style={styles.modalContainer}>
+        
+          <Text style={styles.modalText}>Cliente salvo com sucesso!</Text>
+          
+          <CustomButton title="Fechar" onPress={handleCloseModal} />
+        </View>
+      </Modal>
 
     </SafeAreaView>
     );
@@ -100,5 +121,20 @@ const styles = StyleSheet.create({
 
   txt: {
     marginTop: 20,
+  },
+
+  modalContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+    margin: 20,
+    borderRadius: 8,
+    padding: 20,
+  },
+  modalText: {
+    fontSize: 18,
+    marginBottom: 20,
+    textAlign: 'center',
   },
 });
